@@ -1,1 +1,62 @@
-# ONT_metagenomics
+### ONT_metagenomics
+
+This repositories is for using centrifuge tool for ONT bacterial data analysis.
+
+#### Tools centrifuge version 1.0.4
+-to install centrifuge 
+
+```
+git clone https://github.com/DaehwanKimLab/centrifuge
+cd centrifuge 
+make 
+sudo make install prefix=/usr/local
+```
+
+#### Database 
+
+- to install database ("Bacteria + Archaea + Virues + Human ")
+
+``curl -L -o p+h+v.tar.gz https://genome-idx.s3.amazonaws.com/centrifuge/p%2Bh%2Bv.tar.gz``
+
+- after tar file install run following command,
+
+``tar -xzvf p+h+v.tar.gz``
+
+- remove tar file
+
+`` rm -i p+h+v.tar.gz ``
+
+- or use centrifuge indexes from <https://ccb.jhu.edu/software/centrifuge/manual.shtml> to install indexs 
+
+#### Run centrifuge_run.sh script 
+
+-to run script 
+`` ./path_to_script/centrifuge_run.sh ``
+
+( before running below script make sure database are in "centrifuge-ref-db/index_file or change path to database as necessary )
+
+- centrifuge will  generate two file: "report.txt"" and "ont.centrifuge.tsv" 
+- using centrifuge-kreport will generate kraken style report name: kreport.tsv. 
+    -each column in kraken style report:  
+    
+    1) Percentage of fragments covered by the clade rooted at this taxon
+    2) Number of fragments covered by the clade rooted at this taxon
+    3) Number of fragments assigned directly to this taxon
+    4) A rank code indicating (U)nclassified, (R)oot, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily,        (G)enus, (S)pecies. 
+    5) The Taxonomic ID number from NCBI
+    6) Indented Scientific Name
+    
+    
+- in the script we have filtered species  based on following:
+    
+    - percent greater than equal to 0.1 % 
+    - Number of fragments assigned directly to this taxon is greater than equal to 500. 
+    - Rank indicating "(S)pecies"
+    
+    
+- 
+    
+    
+
+
+
