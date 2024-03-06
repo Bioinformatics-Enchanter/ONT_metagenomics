@@ -12,6 +12,8 @@ make
 sudo make install prefix=/usr/local
 ```
 
+Reference: https://github.com/DaehwanKimLab/centrifuge/tree/master
+
 #### Database 
 
 - to install database ("Bacteria + Archaea + Virues + Human ")
@@ -30,10 +32,22 @@ sudo make install prefix=/usr/local
 
 #### Run centrifuge_run.sh script 
 
--to run script 
-`` ./path_to_script/centrifuge_run.sh ``
+( before running below script make sure database are in "CENTRIFUGE_DB_PATH" and fastq file are in "FASTQ_PATH" or change path to database and input file as necessary inside script)
 
-( before running below script make sure database are in "centrifuge-ref-db/index_file or change path to database as necessary )
+
+###### Set the path to the centrifuge database
+
+CENTRIFUGE_DB_PATH="/home/path/to/database/centrifuge-ref-db/p+h+v"
+
+###### Set path to fastq file
+
+FASTQ_PATH="/home/Path/to/fastq/file.fq.gz"
+
+-After changing path inside centrifuge_run.sh run following command.
+-to run script run either 
+`` ./path_to_script/centrifuge_run.sh ``
+or
+`` bash Path/to/script/centrifuge_run.sh
 
 - centrifuge will  generate two file: "report.txt"" and "ont.centrifuge.tsv" 
 - using centrifuge-kreport will generate kraken style report name: kreport.tsv. 
@@ -46,7 +60,6 @@ sudo make install prefix=/usr/local
     5) The Taxonomic ID number from NCBI
     6) Indented Scientific Name
     
-    
 - in the script we have filtered species  based on following:
     
     - percent greater than equal to 0.1 % 
@@ -54,9 +67,7 @@ sudo make install prefix=/usr/local
     - Rank indicating "(S)pecies"
     
     
-- 
-    
-    
+
 
 
 
